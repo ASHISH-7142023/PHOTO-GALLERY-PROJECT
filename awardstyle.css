@@ -1,0 +1,41 @@
+h1 {
+    text-align: center;
+    color: rgb(0, 49, 245);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-transform: uppercase;
+    font-size: 2.5em;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-shadow: 5px 10px 5px rgba(0, 0, 0, 0.2);
+
+}
+
+img {
+    margin: 2px auto;
+    object-fit: cover;
+    height: auto;
+    width: 20%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+body {
+    background-color: #b4bad1;
+    font-family: Arial, sans-serif;
+}
+
+#cont-header {
+    display: flex;
+    background-color: cornflowerblue;
+    height: 13%;
+    width: 100%;
+}
+
+
+#header-items {
+    display: flex;
+    gap: 60px;
+    padding: 30px;
+    font-size: 20px;
+
+}
