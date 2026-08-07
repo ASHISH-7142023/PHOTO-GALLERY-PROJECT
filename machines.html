@@ -4,189 +4,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machines Gallery - L&T Photo Gallery</title>
     <link rel="shortcut icon" href="L&T.png" type="image/x-icon">
-    <title>Machines</title>
-    <link rel="stylesheet" href="machinestyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="gallery.js" defer></script>
 </head>
 
 <body>
     <div class="container">
-        <img src="download (7).png" alt="Larsen & Toubro Logo" style="margin: 0 auto;">
-        <center>
-            <h1>Machines Gallery</h1>
-        </center>
+        <img src="download (7).png" alt="Larsen & Toubro Logo">
+        <div class="gallery-title">
+            <h1>Machinery Portfolio</h1>
+            <p>Larsen & Toubro & Partner Machinery Solutions</p>
+        </div>
     </div>
-    <div class="img-container">
-        <a href="infra_prodect_image_copy_04de474a06.webp" target="_blank">
-            <img src="infra_prodect_image_copy_04de474a06.webp" alt="">
+
+    <!-- Main Navigation -->
+    <div id="cont-header">
+        <div id="header-items">
+            <a href="index.html">
+                <img src="icons8-folder-80.png" alt="All Photos">
+                <span>All Photos</span>
+            </a>
+            <a href="event.html">
+                <img src="icons8-folder-80.png" alt="Events">
+                <span>Events</span>
+            </a>
+            <a href="functions.html">
+                <img src="icons8-folder-80.png" alt="Functions">
+                <span>Functions</span>
+            </a>
+            <a href="programmes.html">
+                <img src="icons8-folder-80.png" alt="Programmes">
+                <span>Programmes</span>
+            </a>
+            <a href="birthdays.html">
+                <img src="icons8-folder-80.png" alt="Birthdays">
+                <span>Birthdays</span>
+            </a>
+            <a href="retirement.html">
+                <img src="icons8-folder-80.png" alt="Retirement">
+                <span>Retirement</span>
+            </a>
+            <a href="awards.html">
+                <img src="icons8-folder-80.png" alt="Awards">
+                <span>Awards</span>
+            </a>
+            <a href="machines.html">
+                <img src="icons8-folder-80.png" alt="Machines">
+                <span>Machines</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Sub-navigation Category Filter Tabs -->
+    <div class="sub-nav" id="category-filters">
+        <a href="#" class="filter-btn active" data-filter="all">All Equipment</a>
+        <a href="#" class="filter-btn" data-filter="lt-indigenous">L&T Indigenous</a>
+        <a href="#" class="filter-btn" data-filter="komatsu-excavation">Komatsu Excavation</a>
+        <a href="#" class="filter-btn" data-filter="haulage-mining">Haulage & Mining</a>
+        <a href="#" class="filter-btn" data-filter="crushing-solutions">Crushing Solutions</a>
+        <a href="#" class="filter-btn" data-filter="special-attachments">Special Attachments</a>
+    </div>
+
+    <div class="img-container" id="machines-grid">
+        <!-- 1. L&T Indigenous Road and Earthmoving Equipment -->
+        <a href="lt_compactor.png" data-category="lt-indigenous">
+            <img src="lt_compactor.png" alt="L&T 9020 Soil Compactor">
+            <div class="card-info">
+                <h3>L&T 9020 / 1190 / 491</h3>
+                <p>Vibratory Compactor (Soil & Asphalt)</p>
+            </div>
         </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
+        <a href="lt_compactor.png" data-category="lt-indigenous">
+            <img src="lt_compactor.png" alt="L&T 2490 HD Soil Compactor">
+            <div class="card-info">
+                <h3>L&T 2490 HD / 5590 HD</h3>
+                <p>Heavy Duty Vibratory Compactor</p>
+            </div>
         </a>
-        <a href="lnt2.jpg" target="_blank">
-            <img src="lnt2.jpg" alt="">
+        <a href="krane.jpg" data-category="lt-indigenous">
+            <img src="krane.jpg" alt="L&T WL9020 Wheel Loader">
+            <div class="card-info">
+                <h3>L&T WL9020 / CEV Stage IV</h3>
+                <p>Heavy-Duty Wheel Loader</p>
+            </div>
         </a>
-        <a href="lnt3.png" target="_blank">
-            <img src="lnt3.png" alt="">
+        <a href="heavy.jpg" data-category="lt-indigenous">
+            <img src="heavy.jpg" alt="L&T S315R Skid-Steer Loader">
+            <div class="card-info">
+                <h3>L&T S315R</h3>
+                <p>Skid-Steer Loader</p>
+            </div>
         </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
+        <a href="infra_prodect_image_copy_04de474a06.webp" data-category="lt-indigenous">
+            <img src="infra_prodect_image_copy_04de474a06.webp" alt="L&T Hydraulic Paver & Sand Plant">
+            <div class="card-info">
+                <h3>L&T Pavers & Sand Plants</h3>
+                <p>Road Construction & Processing</p>
+            </div>
         </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
+        <a href="articulated-hauler.jpg" data-category="lt-indigenous">
+            <img src="articulated-hauler.jpg" alt="L&T Precision Surface Miner">
+            <div class="card-info">
+                <h3>L&T Surface Miners</h3>
+                <p>Precision Open-Cast Mining</p>
+            </div>
         </a>
-        <a href="infra_prodect_image_copy_04de474a06.webp" target="_blank">
-            <img src="infra_prodect_image_copy_04de474a06.webp" alt="">
+
+        <!-- 2. Komatsu Excavation & Earthmoving Portfolio -->
+        <a href="komatsu_excavator.png" data-category="komatsu-excavation">
+            <img src="komatsu_excavator.png" alt="Komatsu PC210-10M0 Excavator">
+            <div class="card-info">
+                <h3>Komatsu PC210-10M0</h3>
+                <p>Flagship Hydraulic Excavator</p>
+            </div>
         </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
+        <a href="komatsu_excavator.png" data-category="komatsu-excavation">
+            <img src="komatsu_excavator.png" alt="Komatsu PC300LC Excavator">
+            <div class="card-info">
+                <h3>Komatsu PC71 / PC130 / PC300LC</h3>
+                <p>Utility Hydraulic Excavator</p>
+            </div>
         </a>
-        <a href="lnt2.jpg" target="_blank">
-            <img src="lnt2.jpg" alt="">
+        <a href="komatsu_excavator.png" data-category="komatsu-excavation">
+            <img src="komatsu_excavator.png" alt="Komatsu PC500LC-10R Excavator">
+            <div class="card-info">
+                <h3>Komatsu PC450 / PC500LC-10R</h3>
+                <p>Large Class Mining Excavator</p>
+            </div>
         </a>
-        <a href="lnt3.png" target="_blank">
-            <img src="lnt3.png" alt="">
+        <a href="LR-1110-Crawler-Crane-copy.jpg" data-category="komatsu-excavation">
+            <img src="LR-1110-Crawler-Crane-copy.jpg" alt="Komatsu D85ESS Crawler Dozer">
+            <div class="card-info">
+                <h3>Komatsu D85ESS</h3>
+                <p>Heavy Crawler Bulldozer</p>
+            </div>
         </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
+        <a href="mobile-cranes-category12.jpg" data-category="komatsu-excavation">
+            <img src="mobile-cranes-category12.jpg" alt="Komatsu GD535-6 Motor Grader">
+            <div class="card-info">
+                <h3>Komatsu GD535-6 & Wheel Dozers</h3>
+                <p>Precision Grader & Mining Dozer</p>
+            </div>
         </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
+
+        <!-- 3. Haulage & Mining Trucks -->
+        <a href="mining_truck.png" data-category="haulage-mining">
+            <img src="mining_truck.png" alt="Komatsu HD785 Rear Dump Truck">
+            <div class="card-info">
+                <h3>Komatsu HD785</h3>
+                <p>100-Ton Rear Dump Mining Truck</p>
+            </div>
         </a>
-        <a href="infra_prodect_image_copy_04de474a06.webp" target="_blank">
-            <img src="infra_prodect_image_copy_04de474a06.webp" alt="">
+        <a href="articulated-hauler.jpg" data-category="haulage-mining">
+            <img src="articulated-hauler.jpg" alt="Scania Tipper Truck & Heavy Dumper">
+            <div class="card-info">
+                <h3>Scania & Komatsu Tippers</h3>
+                <p>Multi-Axle Heavy Hauler / Dumper</p>
+            </div>
         </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
+
+        <!-- 4. Crushing Solutions -->
+        <a href="crushing_plant.png" data-category="crushing-solutions">
+            <img src="crushing_plant.png" alt="Stationary Crushing Plant">
+            <div class="card-info">
+                <h3>L&T Crushing Systems</h3>
+                <p>Stationary Aggregate Crushing Plant</p>
+            </div>
         </a>
-        <a href="lnt2.jpg" target="_blank">
-            <img src="lnt2.jpg" alt="">
+        <a href="crushing_plant.png" data-category="crushing-solutions">
+            <img src="crushing_plant.png" alt="Mobile / Semi-Mobile Crusher">
+            <div class="card-info">
+                <h3>L&T Track Mobile Crusher</h3>
+                <p>Semi-Mobile Quarry Crusher Unit</p>
+            </div>
         </a>
-        <a href="lnt3.png" target="_blank">
-            <img src="lnt3.png" alt="">
+
+        <!-- 5. Special Attachments -->
+        <a href="special_attachments.png" data-category="special-attachments">
+            <img src="special_attachments.png" alt="Excavator Rock Breaker Attachment">
+            <div class="card-info">
+                <h3>L&T Rock Breakers</h3>
+                <p>Heavy Demolition Hammer Attachment</p>
+            </div>
         </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
+        <a href="special_attachments.png" data-category="special-attachments">
+            <img src="special_attachments.png" alt="Excavator Slope Compactor & Crusher Bucket">
+            <div class="card-info">
+                <h3>Slope Compactors & Crusher Buckets</h3>
+                <p>Demolition & Site Finishing Tools</p>
+            </div>
         </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
-        </a>
-        <a href="infra_prodect_image_copy_04de474a06.webp" target="_blank">
-            <img src="infra_prodect_image_copy_04de474a06.webp" alt="">
-        </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
-        </a>
-        <a href="lnt2.jpg" target="_blank">
-            <img src="lnt2.jpg" alt="">
-        </a>
-        <a href="lnt3.png" target="_blank">
-            <img src="lnt3.png" alt="">
-        </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
-        </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
-        </a>
-        <a href="infra_prodect_image_copy_04de474a06.webp" target="_blank">
-            <img src="infra_prodect_image_copy_04de474a06.webp" alt="">
-        </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
-        </a>
-        <a href="lnt2.jpg" target="_blank">
-            <img src="lnt2.jpg" alt="">
-        </a>
-        <a href="lnt3.png" target="_blank">
-            <img src="lnt3.png" alt="">
-        </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
-        </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
-        </a>
-        <a href="infra_prodect_image_copy_04de474a06.webp" target="_blank">
-            <img src="infra_prodect_image_copy_04de474a06.webp" alt="">
-        </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
-        </a>
-        <a href="lnt2.jpg" target="_blank">
-            <img src="lnt2.jpg" alt="">
-        </a>
-        <a href="lnt3.png" target="_blank">
-            <img src="lnt3.png" alt="">
-        </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
-        </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
-        </a>
-        <a href="infra_prodect_image_copy_04de474a06.webp" target="_blank">
-            <img src="infra_prodect_image_copy_04de474a06.webp" alt="">
-        </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
-        </a>
-        <a href="lnt2.jpg" target="_blank">
-            <img src="lnt2.jpg" alt="">
-        </a>
-        <a href="lnt3.png" target="_blank">
-            <img src="lnt3.png" alt="">
-        </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
-        </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
-        </a>
-        <a href="infra_prodect_image_copy_04de474a06.webp" target="_blank">
-            <img src="infra_prodect_image_copy_04de474a06.webp" alt="">
-        </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
-        </a>
-        <a href="lnt2.jpg" target="_blank">
-            <img src="lnt2.jpg" alt="">
-        </a>
-        <a href="lnt3.png" target="_blank">
-            <img src="lnt3.png" alt="">
-        </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
-        </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
-        </a>
-        <a href="infra_prodect_image_copy_04de474a06.webp" target="_blank">
-            <img src="infra_prodect_image_copy_04de474a06.webp" alt="">
-        </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
-        </a>
-        <a href="lnt2.jpg" target="_blank">
-            <img src="lnt2.jpg" alt="">
-        </a>
-        <a href="lnt3.png" target="_blank">
-            <img src="lnt3.png" alt="">
-        </a>
-        <a href="krane.jpg" target="_blank">
-            <img src="krane.jpg" alt="">
-        </a>
-        <a href="lnt2.jpg" target="_blank">
-            <img src="lnt2.jpg" alt="">
-        </a>
-        <a href="lnt3.png" target="_blank">
-            <img src="lnt3.png" alt="">
+        <a href="krane.jpg" data-category="special-attachments">
+            <img src="krane.jpg" alt="Quick Couplers & Piling Products">
+            <div class="card-info">
+                <h3>Quick Couplers & Piling Products</h3>
+                <p>Foundations & Tool Changers</p>
+            </div>
         </a>
     </div>
-    <div class="footer" style="text-align: center; margin-top: 20px;">
+
+    <div class="footer">
         <p>&copy; 2025 Larsen & Toubro Limited. All rights reserved.</p>
-        <p style="font-family: cursive;">Designed by ASHISH RANJAN SINGH</p>
+        <p>Designed by ASHISH RANJAN SINGH</p>
     </div>
+
+    <!-- Client-side filter script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterButtons = document.querySelectorAll('#category-filters .filter-btn');
+            const galleryCards = document.querySelectorAll('#machines-grid a');
+
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Update active button state
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    // Filter gallery grid items
+                    galleryCards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+                        
+                        if (filterValue === 'all' || cardCategory === filterValue) {
+                            card.classList.remove('hidden-card');
+                        } else {
+                            card.classList.add('hidden-card');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

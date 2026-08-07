@@ -1,0 +1,444 @@
+/* 
+   Larsen & Toubro Photo Gallery - Premium Stylesheet
+   Designed by: Antigravity AI
+*/
+
+:root {
+    --primary-blue: #005a9c;
+    --primary-amber: #ffc72c;
+    --primary-dark-blue: #003366;
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --card-hover-border: rgba(255, 255, 255, 0.25);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-gradient);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+
+/* Header & Title Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+}
+
+.container img {
+    max-height: 60px;
+    width: auto;
+    border-radius: 0;
+    transition: none;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.gallery-title h1 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    background: linear-gradient(135deg, #ffffff 40%, var(--primary-amber) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-title p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Sticky Premium Navigation */
+#cont-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+#header-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    overflow-x: auto;
+    scrollbar-width: none; /* Hide standard Firefox scrollbar */
+    -ms-overflow-style: none; /* Hide IE scrollbar */
+}
+
+#header-items::-webkit-scrollbar {
+    display: none; /* Hide Chrome/Safari scrollbar */
+}
+
+#header-items a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    white-space: nowrap;
+    transition: var(--transition-smooth);
+}
+
+#header-items a img {
+    height: 18px;
+    width: 18px;
+    margin: 0;
+    border-radius: 0;
+    opacity: 0.7;
+    filter: brightness(0) invert(1); /* Render folder icon in clean white */
+    transition: var(--transition-smooth);
+}
+
+#header-items a:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--card-hover-border);
+}
+
+#header-items a:hover img {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Active Nav State */
+#header-items a.active {
+    background: var(--primary-blue);
+    color: #ffffff;
+    border-color: var(--primary-blue);
+    box-shadow: 0 4px 12px rgba(0, 90, 156, 0.3);
+}
+
+#header-items a.active img {
+    opacity: 1;
+    filter: brightness(0) invert(1);
+}
+
+/* Sub Navigation for Long Service Awards etc. */
+.sub-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px auto -10px;
+    max-width: 1200px;
+    padding: 0 20px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.sub-nav a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: var(--transition-smooth);
+}
+
+.sub-nav a:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--card-hover-border);
+}
+
+.sub-nav a.active {
+    color: #ffffff;
+    background: rgba(255, 199, 44, 0.15);
+    border-color: var(--primary-amber);
+    box-shadow: 0 2px 8px rgba(255, 199, 44, 0.1);
+}
+
+/* Photo Gallery Grid */
+.img-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+    flex-grow: 1;
+}
+
+.img-container a {
+    display: block;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transition: var(--transition-smooth);
+}
+
+.img-container a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0;
+    border-radius: 0;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover States on Gallery Cards */
+.img-container a:hover {
+    transform: translateY(-5px);
+    border-color: var(--card-hover-border);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.img-container a:hover img {
+    transform: scale(1.08);
+    filter: brightness(1.05);
+}
+
+/* Grid Card Info Overlay */
+.card-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.3) 70%, transparent 100%);
+    padding: 35px 16px 16px;
+    transition: var(--transition-smooth);
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    z-index: 2;
+}
+
+.card-info h3 {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.card-info p {
+    font-size: 0.7rem;
+    color: var(--primary-amber);
+    font-weight: 600;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.img-container a:hover .card-info {
+    background: linear-gradient(to top, rgba(0, 90, 156, 0.95) 0%, rgba(0, 90, 156, 0.4) 70%, transparent 100%);
+}
+
+.img-container a.hidden-card {
+    display: none !important;
+}
+
+/* Footer Section */
+.footer {
+    width: 100%;
+    padding: 30px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(15, 23, 42, 0.8);
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+}
+
+.footer p:last-child {
+    margin-bottom: 0;
+    font-size: 0.75rem;
+}
+
+/* Premium Lightbox Modal Styling */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.lightbox-img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.lightbox.active .lightbox-img {
+    transform: scale(1);
+}
+
+/* Control Buttons */
+.lightbox-btn {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    transition: var(--transition-smooth);
+    user-select: none;
+}
+
+.lightbox-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.lightbox-btn:active {
+    transform: scale(0.95);
+}
+
+.lightbox-close {
+    top: -60px;
+    right: 0;
+}
+
+.lightbox-prev {
+    left: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox-next {
+    right: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Responsive adjustments for lightbox buttons */
+@media (max-width: 900px) {
+    .lightbox-prev {
+        left: 10px;
+        background: rgba(15, 23, 42, 0.6);
+    }
+    
+    .lightbox-next {
+        right: 10px;
+        background: rgba(15, 23, 42, 0.6);
+    }
+    
+    .lightbox-close {
+        top: 10px;
+        right: 10px;
+        background: rgba(15, 23, 42, 0.6);
+    }
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 600px) {
+    .container {
+        padding-top: 20px;
+    }
+    
+    .gallery-title h1 {
+        font-size: 1.75rem;
+    }
+    
+    #header-items {
+        justify-content: flex-start;
+        padding: 10px;
+    }
+    
+    #header-items a {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .img-container {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 12px;
+        padding: 0 12px;
+    }
+    
+    .lightbox-btn {
+        width: 40px;
+        height: 40px;
+    }
+}
