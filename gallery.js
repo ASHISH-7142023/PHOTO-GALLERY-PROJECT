@@ -3,15 +3,30 @@
    Designed by: Antigravity AI
  */
 
+// Safe localStorage wrapper to prevent crashes when pages are opened via file:// protocol
+const safeStorage = {
+    getItem(key) {
+        try {
+            return localStorage.getItem(key);
+        } catch (e) {
+            return null;
+        }
+    },
+    setItem(key, value) {
+        try {
+            localStorage.setItem(key, value);
+        } catch (e) {}
+    }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     // Pre-apply theme from localStorage to avoid layout flashes
-    const isLightMode = localStorage.getItem('gallery-theme') === 'light';
+    const isLightMode = safeStorage.getItem('gallery-theme') === 'light';
     if (isLightMode) {
         document.body.classList.add('light-mode');
     }
 
     setupActiveNavigation();
-    injectCardInfo();
     setupToolbar();
     setupLightbox();
     applyStaggeredAnimations();
@@ -55,52 +70,6 @@ function setupActiveNavigation() {
 }
 
 /**
- * Dynamically injects title and category overlays into all gallery cards
- */
-function injectCardInfo() {
-    const cards = document.querySelectorAll('.img-container a');
-    cards.forEach(card => {
-        // Skip if already contains card-info
-        if (card.querySelector('.card-info')) return;
-        
-        const img = card.querySelector('img');
-        if (!img) return;
-        
-        const alt = img.getAttribute('alt') || 'L&T Gallery Photo';
-        const title = cleanTitle(alt);
-        
-        // Match alt contents to extract logical categories
-        let category = 'Gallery';
-        const altLower = alt.toLowerCase();
-        if (altLower.includes('birthday') || altLower.includes('bday')) category = 'Birthdays';
-        else if (altLower.includes('award') || altLower.includes('lsa') || altLower.includes('service') || altLower.includes('yrs') || altLower.includes('years')) category = 'Awards';
-        else if (altLower.includes('retirement')) category = 'Retirement';
-        else if (altLower.includes('event')) category = 'Events';
-        else if (altLower.includes('function')) category = 'Functions';
-        else if (altLower.includes('programme')) category = 'Programmes';
-        else if (altLower.includes('machine') || altLower.includes('crane') || altLower.includes('hauler') || altLower.includes('excavator') || altLower.includes('truck') || altLower.includes('plant') || altLower.includes('compactor') || altLower.includes('krane')) category = 'Machines';
-        else if (altLower.includes('office') || altLower.includes('premises')) category = 'Premises';
-        
-        const cardInfo = document.createElement('div');
-        cardInfo.className = 'card-info';
-        cardInfo.innerHTML = `
-            <h3>${title}</h3>
-            <p>${category}</p>
-        `;
-        card.appendChild(cardInfo);
-    });
-}
-
-/**
- * Formats image alt text into a clean title case title
- */
-function cleanTitle(altText) {
-    if (!altText) return "L&T Photo";
-    // Convert text to title case
-    return altText.replace(/\b\w/g, c => c.toUpperCase());
-}
-
-/**
  * Injects and manages the premium control panel toolbar (Search, Filters, Theme, Grid Switcher)
  */
 function setupToolbar() {
@@ -135,7 +104,7 @@ function setupToolbar() {
     // Layout toggle button
     const layoutBtn = document.createElement('button');
     layoutBtn.className = 'toolbar-btn layout-toggle-btn';
-    const isMasonry = localStorage.getItem('gallery-layout') === 'masonry';
+    const isMasonry = safeStorage.getItem('gallery-layout') === 'masonry';
     if (isMasonry) {
         galleryContainer.classList.add('masonry-layout');
         layoutBtn.classList.add('active');
@@ -150,12 +119,12 @@ function setupToolbar() {
             galleryContainer.classList.remove('masonry-layout');
             layoutBtn.classList.remove('active');
             layoutBtn.innerHTML = `<span class="layout-icon">▤</span> <span class="layout-label">Masonry</span>`;
-            localStorage.setItem('gallery-layout', 'grid');
+            safeStorage.setItem('gallery-layout', 'grid');
         } else {
             galleryContainer.classList.add('masonry-layout');
             layoutBtn.classList.add('active');
             layoutBtn.innerHTML = `<span class="layout-icon">田</span> <span class="layout-label">Grid View</span>`;
-            localStorage.setItem('gallery-layout', 'masonry');
+            safeStorage.setItem('gallery-layout', 'masonry');
         }
         applyStaggeredAnimations();
     });
@@ -164,7 +133,7 @@ function setupToolbar() {
     // Theme toggle button
     const themeBtn = document.createElement('button');
     themeBtn.className = 'toolbar-btn theme-toggle-btn';
-    const isLightMode = localStorage.getItem('gallery-theme') === 'light';
+    const isLightMode = safeStorage.getItem('gallery-theme') === 'light';
     if (isLightMode) {
         themeBtn.innerHTML = `<span class="theme-icon">🌙</span> <span class="theme-label">Dark Mode</span>`;
     } else {
@@ -176,11 +145,11 @@ function setupToolbar() {
         if (currentlyLight) {
             document.body.classList.remove('light-mode');
             themeBtn.innerHTML = `<span class="theme-icon">☀️</span> <span class="theme-label">Light Mode</span>`;
-            localStorage.setItem('gallery-theme', 'dark');
+            safeStorage.setItem('gallery-theme', 'dark');
         } else {
             document.body.classList.add('light-mode');
             themeBtn.innerHTML = `<span class="theme-icon">🌙</span> <span class="theme-label">Dark Mode</span>`;
-            localStorage.setItem('gallery-theme', 'light');
+            safeStorage.setItem('gallery-theme', 'light');
         }
     });
     buttonsWrapper.appendChild(themeBtn);
