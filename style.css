@@ -916,3 +916,23 @@ body {
     }
 }
 
+/* Dynamic Smooth Easing Rules */
+html {
+    scroll-behavior: smooth;
+}
+
+.img-container,
+.gallery-title,
+.sub-nav {
+    transition: opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.lightbox-img {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease-out;
+}
+
+.lightbox-img.switching {
+    opacity: 0;
+    transform: scale(0.95) translateY(4px);
+}
+

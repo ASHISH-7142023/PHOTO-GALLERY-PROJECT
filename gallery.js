@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupActiveNavigation();
     setupToolbar();
     setupLightbox();
+    setupSpaRouting();
     applyStaggeredAnimations();
 });
 
@@ -436,11 +437,19 @@ function setupLightbox() {
         
         counterEl.textContent = `${index + 1} / ${visibleImages.length}`;
 
+        // Fade image out
+        lightboxImg.classList.add('switching');
+
         // Preload image for smoother display
         const tempImg = new Image();
         tempImg.onload = () => {
             lightboxImg.src = imgUrl;
             lightboxImg.alt = imgAlt;
+            
+            // Fade image back in
+            setTimeout(() => {
+                lightboxImg.classList.remove('switching');
+            }, 50);
         };
         tempImg.src = imgUrl;
     }
@@ -562,5 +571,122 @@ function setupLightbox() {
             toggleSlideshow();
         }
     }
+}
+
+/**
+ * Enables smooth Single Page Application (SPA) routing transitions across pages
+ */
+function setupSpaRouting() {
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('#header-items a, .sub-nav a');
+        if (!link) return;
+
+        const href = link.getAttribute('href');
+        if (!href) return;
+        
+        // Ignore absolute, internal hashes, or javascript links
+        if (href.startsWith('http') || href.startsWith('#') || href.startsWith('javascript:')) return;
+        
+        // Ignore links that aren't other HTML pages
+        if (href.endsWith('.jpg') || href.endsWith('.png') || href.endsWith('.webp') || href.endsWith('.jpeg')) return;
+        
+        e.preventDefault();
+        navigateToPage(href);
+    });
+
+    window.addEventListener('popstate', () => {
+        const url = window.location.pathname.split('/').pop() || 'index.html';
+        navigateToPage(url, false);
+    });
+}
+
+/**
+ * Transition loader page parser logic
+ */
+function navigateToPage(url, push = true) {
+    const container = document.querySelector('.img-container');
+    const titleContainer = document.querySelector('.gallery-title');
+    const subNav = document.querySelector('.sub-nav');
+    
+    // Smoothly drop opacity of layout layers
+    if (container) container.style.opacity = '0';
+    if (titleContainer) titleContainer.style.opacity = '0';
+    if (subNav) subNav.style.opacity = '0';
+    
+    fetch(url)
+        .then(res => {
+            if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+            return res.text();
+        })
+        .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            
+            // Wait for fadeout transitions to close
+            setTimeout(() => {
+                document.title = doc.title;
+                
+                // Swap title element contents
+                const newTitle = doc.querySelector('.gallery-title');
+                if (newTitle && titleContainer) {
+                    titleContainer.innerHTML = newTitle.innerHTML;
+                }
+                
+                // Swap sub navigation structure
+                const newSubNav = doc.querySelector('.sub-nav');
+                if (subNav) {
+                    if (newSubNav) {
+                        subNav.innerHTML = newSubNav.innerHTML;
+                        subNav.style.display = '';
+                        subNav.style.opacity = '0';
+                    } else {
+                        subNav.style.display = 'none';
+                    }
+                } else if (newSubNav) {
+                    const header = document.querySelector('#cont-header');
+                    const createdSubNav = document.createElement('div');
+                    createdSubNav.className = 'sub-nav';
+                    createdSubNav.innerHTML = newSubNav.innerHTML;
+                    header.parentNode.insertBefore(createdSubNav, header.nextSibling);
+                }
+                
+                // Swap image grid cards
+                const newContainer = doc.querySelector('.img-container');
+                if (newContainer && container) {
+                    container.className = newContainer.className;
+                    container.innerHTML = newContainer.innerHTML;
+                }
+                
+                // Redraw active navigation classes
+                setupActiveNavigation();
+                
+                // Redraw toolbar controls and search tags
+                const existingToolbar = document.querySelector('.gallery-toolbar');
+                if (existingToolbar) existingToolbar.remove();
+                setupToolbar();
+                
+                // Re-bind lightbox event delegation
+                setupLightbox();
+                
+                if (push) {
+                    history.pushState({ url }, '', url);
+                }
+                
+                // Scroll back to page top smoothly
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Staggered fade in
+                setTimeout(() => {
+                    if (container) container.style.opacity = '1';
+                    if (titleContainer) titleContainer.style.opacity = '1';
+                    if (subNav) subNav.style.opacity = '1';
+                    applyStaggeredAnimations();
+                }, 50);
+            }, 200);
+        })
+        .catch(err => {
+            console.error("AJAX navigation failed, running regular reload:", err);
+            window.location.href = url;
+        });
 }
 
