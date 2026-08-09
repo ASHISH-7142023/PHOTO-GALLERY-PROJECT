@@ -2,7 +2,9 @@
 
 A state-of-the-art, highly fluid, and visually stunning corporate photo gallery web application designed for **Larsen & Toubro Limited**. 
 
-**Live Project URL:** [https://ashish-7142023.github.io/PHOTO-GALLERY-PROJECT/](https://ashish-7142023.github.io/PHOTO-GALLERY-PROJECT/)
+**Live Project URLs:**
+*   **Vercel Deployment (Fast SPA Routing & Cross-Fades):** [https://photo-gallery-project-six.vercel.app](https://photo-gallery-project-six.vercel.app)
+*   **GitHub Pages Deployment:** [https://ashish-7142023.github.io/PHOTO-GALLERY-PROJECT/](https://ashish-7142023.github.io/PHOTO-GALLERY-PROJECT/)
 
 ---
 
