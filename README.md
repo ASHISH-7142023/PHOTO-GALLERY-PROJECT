@@ -1,36 +1,76 @@
-# 📸 Larsen & Toubro Limited Photo Gallery
+<div align="center">
+  <img src="logo.png" alt="Larsen & Toubro Banner" width="480" style="max-width: 100%; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); margin-bottom: 20px;" />
+  
+  # ✨ Larsen & Toubro Limited Photo Gallery ✨
+  
+  **State-of-the-Art • Highly Fluid • Visually Stunning**
+  
+  A state-of-the-art, highly fluid, and visually stunning corporate photo gallery web application designed for **Larsen & Toubro Limited**. 
+  
+  [![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-black?style=for-the-badge&logo=vercel)](https://photo-gallery-project-six.vercel.app)
+  [![GitHub Pages](https://img.shields.io/badge/Deployed_on-GitHub_Pages-blue?style=for-the-badge&logo=github)](https://ashish-7142023.github.io/PHOTO-GALLERY-PROJECT/)
+  [![HTML5](https://img.shields.io/badge/Markup-HTML5-orange?style=for-the-badge&logo=html5)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+  [![CSS3](https://img.shields.io/badge/Styling-CSS3-blue?style=for-the-badge&logo=css3)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+  [![JavaScript](https://img.shields.io/badge/Interactivity-Vanilla_JS-yellow?style=for-the-badge&logo=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-A state-of-the-art, highly fluid, and visually stunning corporate photo gallery web application designed for **Larsen & Toubro Limited**. 
+  ---
+</div>
 
-**Live Project URLs:**
-*   **Vercel Deployment (Fast SPA Routing & Cross-Fades):** [https://photo-gallery-project-six.vercel.app](https://photo-gallery-project-six.vercel.app)
-*   **GitHub Pages Deployment:** [https://ashish-7142023.github.io/PHOTO-GALLERY-PROJECT/](https://ashish-7142023.github.io/PHOTO-GALLERY-PROJECT/)
-
----
-
-## 🛠️ Tech Stack & Architecture
-
-This project is built from scratch without bulky third-party libraries, ensuring high performance, lightning-fast load times, and maximum control:
-
-*   **Markup:** Semantic HTML5 structured layout for modern SEO best practices.
-*   **Styling:** Modern Vanilla CSS3 with variables (CSS custom properties), hardware-accelerated animations (`transform`/`opacity`), glassmorphism overlays, and fluid flexbox/grid systems.
-*   **Interactivity:** Vanilla ES6+ Javascript containing modular logic, event delegation, and asynchronous fetch APIs.
-*   **Graphics & Assets:** Curated SVG assets alongside AI-generated high-resolution corporate photographs spanning categories like ceremonies, team workshops, farewells, and office environments.
-
----
-
-## 🎨 Design Aesthetics
+## 🎨 Visual Identity & Design Aesthetics
 
 The user interface was crafted to match the premium, professional identity of **Larsen & Toubro**:
 
-*   **Corporate Color Palette:** Features curated corporate tones (L&T Classic Navy Blue `#005a9c`, Golden Amber accent `#ffc72c`, deep slate backgrounds, and clean modern slates for light mode).
-*   **Glassmorphic Elements:** Navigation headers and toolbars leverage backdrop filters (`blur(12px)`) and semi-transparent borders to create a premium frosted-glass aesthetic.
-*   **Micro-Animations:** Interactive elements (category tags, layout togglers, nav links, and image cards) feature smooth transitions using organic cubic-bezier easing curves.
-*   **Staggered Card Entry:** Images load in sequence with staggered vertical slide animations on page load, creating a polished, professional entrance.
+*   **Colors & Palette (Corporate Identity)**:
+    *   **Light Mode**: Features clean modern slates.
+    *   **Dark Mode**: Sleek dark theme leveraging deep slate backgrounds.
+    *   **Accents**: L&T Classic Navy Blue (`#005a9c`) and Golden Amber accent (`#ffc72c`).
+*   **Glassmorphic Elements**:
+    *   Navigation headers and toolbars leverage backdrop filters (`blur(12px)`) and semi-transparent borders to create a premium frosted-glass aesthetic.
+*   **Micro-Animations & Delighters**:
+    *   **Transitions**: Interactive elements (category tags, layout togglers, nav links, and image cards) feature smooth transitions using organic cubic-bezier easing curves.
+    *   **Staggered Card Entry**: Images load in sequence with staggered vertical slide animations on page load, creating a polished, professional entrance.
 
 ---
 
-## ⚡ Key Features & Workflows
+## ⚙️ Tech Stack & Architecture
+
+This project is built from scratch without bulky third-party libraries, ensuring high performance, lightning-fast load times, and maximum control:
+
+| Layer | Technology | Key Purpose / Feature |
+| :--- | :--- | :--- |
+| **Markup** | HTML5 | Semantic structured layout for modern SEO best practices. |
+| **Styling** | Vanilla CSS3 | Custom properties, hardware-accelerated animations (`transform`/`opacity`), glassmorphism overlays, and fluid flexbox/grid systems. |
+| **Interactivity** | Vanilla ES6+ JS | Modular logic, event delegation, and asynchronous fetch APIs. |
+| **Graphics** | High-Res Assets | Curated SVG assets alongside high-resolution corporate photographs. |
+
+---
+
+## 🔄 Core Workflows & Logic
+
+```mermaid
+flowchart TD
+    %% Styling
+    classDef default fill:#FFFDF6,stroke:#005a9c,stroke-width:1px,color:#2D1E17;
+    classDef actor fill:#FDF2FF,stroke:#005a9c,stroke-width:2px,font-weight:bold,color:#005a9c;
+    classDef system fill:#FFF5F5,stroke:#ffc72c,stroke-width:1.5px,color:#ffc72c;
+
+    subgraph Navigation & Viewing
+        U_Start([User Visits Gallery]) --> U_Nav[Click Navigation Links]
+        U_Nav --> U_Fetch{AJAX Fetch}
+        U_Fetch -- Background --> U_Swap[Swap Page Elements & Cross-Fade]
+        U_Swap --> U_View[View New Category Images]
+    end
+
+    subgraph Interactive Features
+        U_View --> U_Search[Dynamic Search Filters]
+        U_View --> U_Lightbox[Click Image for Lightbox]
+        U_Lightbox --> U_Share[Share/Download Image]
+        U_Lightbox --> U_Slideshow[Autoplay Slideshow]
+    end
+
+    class U_Start actor;
+    class U_Fetch,U_Swap system;
+```
 
 ### 1. SPA-style AJAX Page Transitions
 To prevent harsh, sudden page reloads, the gallery implements custom Single Page Application (SPA) routing:
