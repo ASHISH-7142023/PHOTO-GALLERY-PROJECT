@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="logo.png" alt="Larsen & Toubro Banner" width="480" style="max-width: 100%; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); margin-bottom: 20px;" />
+  <img src="logo.png" alt="Larsen & Toubro Banner" width="200" style="max-width: 100%; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); margin-bottom: 20px;" />
   
   # ✨ Larsen & Toubro Limited Photo Gallery ✨
   
@@ -93,6 +93,26 @@ Clicking any photo launches a full-screen, hardware-accelerated modal:
 *   **Switching Cross-Fade:** Blurs and fades images during slide changes to remove sudden pops.
 *   **Toast Notifications:** Injects non-blocking success alerts for download and copy activities.
 *   **Safe Storage Wrapper:** A safety wrapper guards all storage operations, preventing browser security crashes when launching pages directly from local files (`file://` protocol).
+
+---
+
+## 📂 Project Directory Structure
+
+```text
+├── index.html             # Main entrypoint, Home & All Photos gallery
+├── style.css              # Core styling, variables, animations, glassmorphism UI
+├── gallery.js             # SPA interaction logic, routing, layout switcher
+├── event.html             # Events category page
+├── functions.html         # Functions category page
+├── programmes.html        # Programmes category page
+├── birthdays.html         # Birthdays category page
+├── retirement.html        # Retirement category page
+├── awards.html            # Awards category page
+├── machines.html          # Machines category page
+├── lsa.html               # Long Service Awards overview page
+├── 25yrs.html, 30yrs.html # Long Service sub-pages
+└── .vercel/               # Serverless deployment configuration
+```
 
 ---
 
