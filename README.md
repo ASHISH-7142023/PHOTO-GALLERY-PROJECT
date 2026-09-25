@@ -47,9 +47,6 @@ This project is built from scratch without bulky third-party libraries, ensuring
 
 ## 🔄 Core Workflows & Logic
 
-<div align="center">
-  <img src="visual_workflow.jpg" alt="Photo Gallery Visual Workflow" width="720" style="max-width: 100%; border-radius: 12px; margin-bottom: 20px;" />
-</div>
 
 ```mermaid
 flowchart TD
